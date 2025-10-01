@@ -45,7 +45,6 @@
         </form>
 
         <hr>
-        
         <h3>Daftar Bahan Baku</h3>
         <table class="table table-bordered">
             <thead>
@@ -54,10 +53,30 @@
                     <th>Kategori</th>
                     <th>Jumlah</th>
                     <th>Status</th>
+                    <th>Tanggal Masuk</th>
+                    <th>Tanggal Kadaluarsa</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                </tbody>
+    <?php if (!empty($bahan_baku)): ?>
+        <?php foreach ($bahan_baku as $item): ?>
+            <tr>
+                <td><?= $item['nama'] ?></td>
+                <td><?= $item['kategori'] ?></td>
+                <td><?= $item['jumlah'] ?></td>
+                <td><?= $item['satuan'] ?></td>
+                <td><?= $item['tanggal_masuk'] ?></td>
+                <td><?= $item['tanggal_kadaluarsa'] ?></td>
+                <td><?= $item['status'] ?></td>
+            </tr>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <tr>
+            <td colspan="7" class="text-center">Belum ada data bahan baku.</td>
+        </tr>
+    <?php endif; ?>
+</tbody>
         </table>
     </div>
 </body>
