@@ -14,6 +14,8 @@ $routes->get('/auth/logout', 'Auth::logout');
 // Rute untuk Petugas Gudang (Admin)
 $routes->group('gudang', ['filter' => 'auth:gudang'], function($routes){
     $routes->get('dashboard', 'Gudang::dashboard'); // Tampilan dashboard admin
+    $routes->get('bahanbaku', 'BahanBaku::index'); // Daftar bahan baku
+    $routes->post('bahanbaku/tambah', 'BahanBaku::tambah'); // Proses tambah bahan baku
 });
 // Rute untuk Petugas Dapur (Client)
 $routes->group('dapur', ['filter' => 'auth:dapur'], function($routes){
