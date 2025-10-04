@@ -111,4 +111,20 @@ class BahanBaku extends Controller
         
         return redirect()->to('/gudang/bahanbaku')->with('success', 'Stok berhasil diperbarui.');
     }
+
+    public function delete()
+    {
+        $model = new BahanBakuModel();
+        $id = $this->request->getPost('id');
+        $bahan = $model->find($id);
+        if (!$bahan) {
+            return redirect()->to('/gudang/bahanbaku')->with('error', 'Data bahan baku tidak ditemukan.');
+        }
+        if ($bahan['status'] == 'kadaluarsa') {
+            $model->delete($id);
+            return redirect()->to('/gudang/bahanbaku')->with('success', 'Bahan baku berhasil dihapus.');
+        } else {
+            return redirect()->to('/gudang/bahanbaku')->with('error', 'Gagal menghapus! Hanya bahan baku berstatus "kadaluarsa" yang boleh dihapus.');
+        }
+    }
 }

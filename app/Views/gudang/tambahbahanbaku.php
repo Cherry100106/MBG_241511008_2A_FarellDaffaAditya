@@ -11,7 +11,7 @@
         <h2>Form Tambah Bahan Baku</h2>
         <a href="/gudang/bahan_baku" class="btn btn-secondary mb-3">Kembali ke Daftar</a>
 
-        <form action="/gudang/bahan_baku/store" method="post" class="mb-4">
+        <form action="/gudang/bahanbaku/store" method="post" class="mb-4">
             <div class="row g-3">
                 <div class="col-md-6">
                     <label for="nama" class="form-label">Nama Bahan Baku</label>

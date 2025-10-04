@@ -21,6 +21,7 @@ $routes->group('gudang', ['filter' => 'auth:gudang'], function($routes){
     $routes->post('bahanbaku/store', 'BahanBaku::store'); // Proses Menyimpan data baru (Create)
     $routes->post('bahanbaku/update', 'BahanBaku::update'); // Proses Update Stok (Update)
     $routes->get('bahanbaku/edit/(:num)', 'BahanBaku::edit/$1'); // Menampilkan form edit bahan baku
+    $routes->post('bahanbaku/delete', 'BahanBaku::delete'); // Proses Hapus bahan baku (Delete)
 });
 // Rute untuk Petugas Dapur (Client)
 $routes->group('dapur', ['filter' => 'auth:dapur'], function($routes){
