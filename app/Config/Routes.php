@@ -14,7 +14,10 @@ $routes->get('/auth/logout', 'Auth::logout');
 // Rute untuk Petugas Gudang (Admin)
 $routes->group('gudang', ['filter' => 'auth:gudang'], function($routes){
     $routes->get('dashboard', 'Gudang::dashboard'); // Tampilan dashboard admin
-    $routes->get('permintaan', 'Gudang::daftarpermintaan'); // Daftar permintaan dari dapur
+    $routes->get('permintaan', 'Gudang::daftarPermintaan'); // Daftar permintaan dari dapur
+    $routes->get('permintaan/detail/(:num)', 'Gudang::lihatDetail/$1'); // Detail permintaan
+    $routes->post('permintaan/setujui', 'Gudang::setujui'); // Proses setujui permintaan
+    $routes->post('permintaan/tolak', 'Gudang::tolak'); // Proses tolak permintaan
 
     //ROUTES UNTUK BAHAN BAKU (CRUD)
     $routes->get('bahanbaku', 'BahanBaku::index'); // Daftar bahan baku

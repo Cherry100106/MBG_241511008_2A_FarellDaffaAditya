@@ -17,11 +17,24 @@ class Auth implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        // Jika user belum login, arahkan ke halaman login
         if (!session()->get('isLoggedIn')) {
             return redirect()->to('/auth/login');
         }
+        if (!empty($arguments)) {
+            $requiredRole = $arguments[0];
+            $userRole = session()->get('role');
+            if ($userRole !== $requiredRole) {
+                if ($userRole === 'gudang') {
+                    return redirect()->to('/gudang/dashboard');
+                } elseif ($userRole === 'dapur') {
+                    return redirect()->to('/dapur/dashboard');
+                } else {
+                    return redirect()->to('/auth/login');
+                }
+            }
+        }
     }
+    
 
     /**
      * Jalankan setelah Controller

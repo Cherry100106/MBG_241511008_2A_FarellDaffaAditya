@@ -47,7 +47,7 @@
                                 <span class="badge <?= $badgeClass ?>"><?= ucfirst($status) ?></span>
                             </td>
                             <td>
-                                <a href="#" class="btn btn-primary btn-sm">
+                                <a href="/gudang/permintaan/detail/<?= $item['id'] ?>" class="btn btn-primary btn-sm">
                                     <i class="bi bi-eye-fill"></i> Lihat Detail
                                 </a>
                             </td>
